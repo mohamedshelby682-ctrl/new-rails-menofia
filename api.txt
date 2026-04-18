@@ -1,0 +1,85 @@
+	
+info	
+_postman_id	"c9ca5427-0d3c-4587-9221-4e9185bbc1e7"
+name	"My Collection"
+description	"### Welcome to Postman! This is your first collection. \n\nCollections are your starting point for building and testing APIs. You can use this one to:\n\n• Group related requests\n• Test your API in real-world scenarios\n• Document and share your requests\n\nUpdate the name and overview whenever you’re ready to make it yours.\n\n[Learn more about Postman Collections.](https://learning.postman.com/docs/collections/collections-overview/)"
+schema	"https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+_exporter_id	"54126221"
+_collection_link	"https://go.postman.co/collection/54126221-c9ca5427-0d3c-4587-9221-4e9185bbc1e7?source=collection_link"
+item	
+0	
+name	"Get data"
+event	
+0	
+listen	"test"
+script	
+exec	
+0	'pm.test("Status code is 200", function () {'
+1	"    pm.response.to.have.status(200);"
+2	"});"
+type	"text/javascript"
+packages	{}
+requests	{}
+request	
+method	"POST"
+header	
+0	
+key	"Content-Type"
+value	"application/json"
+type	"text"
+1	
+key	"Accept"
+value	"application/json"
+type	"text"
+body	
+mode	"raw"
+raw	'{\n  "user": {\n    "name": "Mohamed",\n    "email": "mohamed@test.com"\n  }\n}'
+options	
+raw	
+language	"json"
+url	
+raw	"http://localhost:3000/users"
+protocol	"http"
+host	
+0	"localhost"
+port	"3000"
+path	
+0	"users"
+description	'This is a GET request and it is used to "get" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data.'
+response	[]
+1	
+name	"Post data"
+event	
+0	
+listen	"test"
+script	
+type	"text/javascript"
+exec	
+0	'pm.test("Successful POST request", function () {'
+1	"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);"
+2	"});"
+3	""
+request	
+method	"POST"
+header	[]
+body	
+mode	"raw"
+raw	'{\n\t"name": "Add your name in the body"\n}'
+options	
+raw	
+language	"json"
+url	
+raw	"postman-echo.com/post"
+host	
+0	"postman-echo"
+1	"com"
+path	
+0	"post"
+description	"This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+response	[]
+2	
+name	"get"
+request	
+method	"GET"
+header	[]
+response	[]
